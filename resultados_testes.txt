@@ -1,0 +1,311 @@
+========================================================================
+  RELATÓRIO DE TESTES UNITÁRIOS — DIO Explorer Commands
+  Gerado em: 19/09/2026 às 20:56:33
+  Projeto  : IBM Bob Final Project
+========================================================================
+
+ALUNO DE REFERÊNCIA: João da Silva
+TECNOLOGIA TESTADA : Java
+NÍVEL DO DESAFIO   : Intermediário
+
+========================================================================
+  1. RESULTADO DOS TESTES UNITÁRIOS
+========================================================================
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/debio/Documentos/000 - Pasta de Trabalho/0A1 - Inteligência Artificial/DIO.me - IBM Bob/IBM-BobDev/IBM_Bob_-_final_project
+plugins: anyio-4.8.0
+collecting ... collected 62 items
+
+tests/test_dio_commands.py::TestUtilitarios::test_buscar_trilha_case_insensitive PASSED [  1%]
+tests/test_dio_commands.py::TestUtilitarios::test_buscar_trilha_parcial PASSED [  3%]
+tests/test_dio_commands.py::TestUtilitarios::test_buscar_trilha_sem_resultado PASSED [  4%]
+tests/test_dio_commands.py::TestUtilitarios::test_carregar_trilhas_arquivo_real PASSED [  6%]
+tests/test_dio_commands.py::TestUtilitarios::test_carregar_trilhas_retorna_lista PASSED [  8%]
+tests/test_dio_commands.py::TestUtilitarios::test_formatar_data_br_data_inicio_ano PASSED [  9%]
+tests/test_dio_commands.py::TestUtilitarios::test_formatar_data_br_formato_correto PASSED [ 11%]
+tests/test_dio_commands.py::TestUtilitarios::test_gerar_codigo_diferente_a_cada_chamada PASSED [ 12%]
+tests/test_dio_commands.py::TestUtilitarios::test_gerar_codigo_formato PASSED [ 14%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_avancado_com_acento PASSED [ 16%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_avancado_sem_acento PASSED [ 17%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_iniciante PASSED [ 19%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_intermediario_com_acento PASSED [ 20%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_intermediario_sem_acento PASSED [ 22%]
+tests/test_dio_commands.py::TestUtilitarios::test_normalizar_nivel_invalido PASSED [ 24%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_busca_case_insensitive PASSED [ 25%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_java_acesso_vitalicio PASSED [ 27%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_java_contem_badges PASSED [ 29%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_java_contem_lives PASSED [ 30%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_java_promocao_ativa PASSED [ 32%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_java_retorna_markdown PASSED [ 33%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_nao_encontrada PASSED [ 35%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_nao_encontrada_sugere_termos PASSED [ 37%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_node_acesso_nao_vitalicio PASSED [ 38%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_node_sem_lives PASSED [ 40%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_node_sem_promocao PASSED [ 41%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_retorna_14_modulos_java PASSED [ 43%]
+tests/test_dio_commands.py::TestCmdTrilha::test_trilha_tecnologia_parcial PASSED [ 45%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_contem_dicas PASSED [ 46%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_contem_exemplos_entrada_saida PASSED [ 48%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_contem_restricoes PASSED [ 50%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_java_avancado_nivel_exibido PASSED [ 51%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_java_iniciante_estrutura PASSED [ 53%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_java_intermediario_nivel_exibido PASSED [ 54%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_nivel_com_acento_avancado PASSED [ 56%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_nivel_com_acento_intermediario PASSED [ 58%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_nivel_invalido_retorna_erro PASSED [ 59%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_nivel_maiusculo_invalido PASSED [ 61%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_tecnologia_aparece_no_titulo PASSED [ 62%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_xp_avancado_range PASSED [ 64%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_xp_iniciante_range PASSED [ 66%]
+tests/test_dio_commands.py::TestCmdDesafio::test_desafio_xp_intermediario_range PASSED [ 67%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_acesso_vitalicio_nao PASSED [ 69%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_acesso_vitalicio_sim PASSED [ 70%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_busca_case_insensitive PASSED [ 72%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_badges PASSED [ 74%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_codigo_verificacao PASSED [ 75%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_modulos PASSED [ 77%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_nome_aluno PASSED [ 79%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_nome_trilha PASSED [ 80%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_tecnologia PASSED [ 82%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_contem_xp PASSED [ 83%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_data_emissao_calculada PASSED [ 85%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_link_dio PASSED [ 87%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_mensagem_parabens PASSED [ 88%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_sem_data_base_usa_hoje PASSED [ 90%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_tabela_dados PASSED [ 91%]
+tests/test_dio_commands.py::TestCmdCertificado::test_certificado_trilha_nao_encontrada PASSED [ 93%]
+tests/test_dio_commands.py::TestIntegracaoArquivoReal::test_certificado_java_arquivo_real PASSED [ 95%]
+tests/test_dio_commands.py::TestIntegracaoArquivoReal::test_desafio_java_intermediario_arquivo_nao_necessario PASSED [ 96%]
+tests/test_dio_commands.py::TestIntegracaoArquivoReal::test_trilha_java_arquivo_real PASSED [ 98%]
+tests/test_dio_commands.py::TestIntegracaoArquivoReal::test_trilha_python_arquivo_real_multiplos_resultados PASSED [100%]
+
+============================== 62 passed in 0.21s ==============================
+
+
+
+========================================================================
+  2. COBERTURA DE CÓDIGO
+========================================================================
+
+Name                               Stmts   Miss  Cover   Missing
+----------------------------------------------------------------
+dio_explorer/src/dio_commands.py      75      0   100%
+----------------------------------------------------------------
+TOTAL                                 75      0   100%
+
+
+========================================================================
+  3. SAÍDA DO COMANDO /trilha Java
+========================================================================
+
+## 📚 Plano de Estudos — Formação Java Developer
+
+**Tecnologia:** Java
+**Total de módulos:** 14
+**XP total ao concluir:** 21000 XP
+
+---
+
+### 🏅 Badges Disponíveis
+
+🥇 Java Fundamentals
+🥇 OOP Expert
+🥇 Spring Boot Master
+🥇 Java Champion
+
+---
+
+### 📡 Lives ao Vivo
+
+- **Spring Boot na Prática** — 20/07/2025 às 18:00
+- **JPA e Hibernate do Zero** — 17/08/2025 às 18:00
+- **Microserviços com Java** — 21/09/2025 às 18:00
+
+---
+
+### 🎁 Promoção Especial
+
+25% OFF em cursos parceiros ao concluir
+
+---
+
+### ♾️ Acesso Vitalício
+
+✅ Sim — esta trilha possui acesso vitalício.
+
+---
+
+## 📚 Plano de Estudos — Formação Fullstack JavaScript
+
+**Tecnologia:** JavaScript / Node.js / React
+**Total de módulos:** 20
+**XP total ao concluir:** 32000 XP
+
+---
+
+### 🏅 Badges Disponíveis
+
+🥇 JS Fundamentals
+🥇 Frontend Developer
+🥇 Backend Developer
+🥇 Fullstack Expert
+🥇 JS Master
+
+---
+
+### 📡 Lives ao Vivo
+
+- **JavaScript Moderno — ES2024 na Prática** — 16/07/2025 às 19:00
+- **Fullstack em 8 Horas — Projeto ao Vivo** — 27/08/2025 às 09:00
+- **Deploy Fullstack na Vercel e Railway** — 24/09/2025 às 19:00
+
+---
+
+### 🎁 Promoção Especial
+
+45% OFF — a trilha mais completa da DIO
+
+---
+
+### ♾️ Acesso Vitalício
+
+✅ Sim — esta trilha possui acesso vitalício.
+
+========================================================================
+  4. SAÍDA DO COMANDO /desafio Java intermediario
+     Aluno: João da Silva
+========================================================================
+
+## ⚔️ Desafio DIO — Java · Nível Intermediário
+
+> 🎲 *Desafio gerado aleatoriamente*
+
+---
+
+### 📋 Enunciado
+
+Implemente **Implementação de uma Pilha (Stack) sem biblioteca** utilizando **Java**.
+O programa deve aceitar entradas do usuário, processar a lógica central e
+exibir o resultado formatado. Garanta tratamento de entradas inválidas e
+siga as boas práticas da linguagem escolhida.
+
+---
+
+### 📥 Exemplo de Entrada
+
+```
+Entrada 1: 10
+Entrada 2: 25
+```
+
+### 📤 Exemplo de Saída Esperada
+
+```
+Resultado: processado com sucesso
+```
+
+---
+
+### 💡 Dicas
+
+- Leia o enunciado com atenção antes de codificar.
+- Comece pelo caso mais simples e evolua progressivamente.
+- Escreva testes para cada caso de uso.
+- Revise a complexidade do seu algoritmo.
+
+---
+
+### 🧩 Restrições
+
+- Não utilize bibliotecas externas não mencionadas.
+- A solução deve executar em tempo O(n) ou melhor.
+- Trate entradas vazias ou nulas.
+
+---
+
+### 🏆 Critérios de Avaliação
+
+| Critério | Peso |
+|---|---|
+| Corretude da solução | 40% |
+| Clareza e legibilidade do código | 30% |
+| Eficiência / performance | 20% |
+| Boas práticas da linguagem | 10% |
+
+---
+
+### 🎯 XP ao Concluir
+
+**+356 XP** ao concluir este desafio.
+
+========================================================================
+  5. SAÍDA DO COMANDO /certificado João da Silva Java
+========================================================================
+
+```
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
+║                    🎓  CERTIFICADO DE CONCLUSÃO                      ║
+║                                                                      ║
+║                  Digital Innovation One — DIO.me                    ║
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  Certificamos que                                                    ║
+║                                                                      ║
+║              ✦  JOÃO DA SILVA                                       ✦  ║
+║                                                                      ║
+║  concluiu com êxito a formação:                                      ║
+║                                                                      ║
+║              Formação Java Developer                                   ║
+║                                                                      ║
+║  Tecnologia:   Java                                                    ║
+║  Módulos:      14 módulos concluídos                                      ║
+║  XP obtido:    21000 XP                                                ║
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  🏅 Badges conquistadas:                                             ║
+║                                                                      ║
+  ·  Java Fundamentals
+  ·  OOP Expert
+  ·  Spring Boot Master
+  ·  Java Champion
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  Data de emissão:   07/10/2025                                         ║
+║  Código:            DIO-202502-XAJI0Y                                  ║
+║                                                                      ║
+║  ⚠️  Este é um certificado fictício gerado para fins educacionais.   ║
+║     Certificados oficiais são emitidos pela plataforma DIO.me.       ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📄 Dados do Certificado
+
+| Campo | Valor |
+|---|---|
+| **Titular** | João da Silva |
+| **Formação** | Formação Java Developer |
+| **Tecnologia** | Java |
+| **Módulos concluídos** | 14 |
+| **XP total** | 21000 XP |
+| **Data de emissão** | 07/10/2025 |
+| **Código de verificação** | `DIO-202502-XAJI0Y` |
+| **Acesso vitalício** | Sim |
+
+---
+
+> 🎉 Parabéns, **João da Silva**! Você concluiu a **Formação Java Developer** e está pronto para os próximos desafios.
+> Continue evoluindo na plataforma [DIO.me](https://dio.me)!
+
+========================================================================
+  FIM DO RELATÓRIO
+========================================================================

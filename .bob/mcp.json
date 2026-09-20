@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "dio-explorer": {
+      "command": "node",
+      "args": [
+        "/home/debio/Documentos/000 - Pasta de Trabalho/0A1 - Inteligência Artificial/DIO.me - IBM Bob/IBM-BobDev/IBM_Bob_-_final_project/dio_explorer/mcp/build/index.js"
+      ]
+    }
+  }
+}
