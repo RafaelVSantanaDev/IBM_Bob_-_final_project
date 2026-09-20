@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatório do Dia — IBM_Bob_-_Final_Project</title>
+<title>Relatório Final — IBM_Bob_-_Final_Project</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,7 +20,7 @@
 
   /* ── HEADER ── */
   .header {
-    background: linear-gradient(135deg, #0052cc 0%, #0747a6 100%);
+    background: #0052cc;
     border-radius: 10px;
     padding: 28px 32px;
     color: #fff;
@@ -32,17 +32,30 @@
   .header-icon { font-size: 48px; flex-shrink: 0; }
   .header-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; margin-bottom: 4px; }
   .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-  .header-meta { font-size: 12px; opacity: 0.8; display: flex; gap: 16px; flex-wrap: wrap; }
+  .header-meta { font-size: 12px; opacity: 0.85; display: flex; gap: 16px; flex-wrap: wrap; }
   .header-meta span::before { content: "· "; }
   .header-meta span:first-child::before { content: ""; }
+  .badge-final {
+    display: inline-block;
+    background: #36b37e;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
 
   /* ── STAT CARDS ── */
-  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 28px; }
+  .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 28px; }
   @media (max-width: 700px) { .stats { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 480px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-  .stat { background: #fff; border: 1px solid #dfe1e6; border-radius: 8px; padding: 16px; text-align: center; }
-  .stat-num { font-size: 28px; font-weight: 800; color: #0052cc; line-height: 1; }
-  .stat-label { font-size: 11px; color: #5e6c84; margin-top: 4px; }
+  @media (max-width: 440px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: #fff; border: 1px solid #dfe1e6; border-radius: 8px; padding: 14px 10px; text-align: center; }
+  .stat-num { font-size: 26px; font-weight: 800; color: #0052cc; line-height: 1; }
+  .stat-label { font-size: 10.5px; color: #5e6c84; margin-top: 4px; }
 
   /* ── SECTION ── */
   .section { background: #fff; border: 1px solid #dfe1e6; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
@@ -50,10 +63,11 @@
   .section-body { padding: 20px; }
 
   /* ── PHASE DIVIDER ── */
-  .phase { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; background: #5e6c84; border-radius: 4px; padding: 3px 10px; display: inline-block; margin-bottom: 18px; }
+  .phase { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; border-radius: 4px; padding: 3px 10px; display: inline-block; margin-bottom: 18px; }
   .phase.p1 { background: #0052cc; }
   .phase.p2 { background: #36b37e; }
   .phase.p3 { background: #6554c0; }
+  .phase.p4 { background: #00b8d9; }
 
   /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 32px; }
@@ -88,6 +102,7 @@
   .tag-test   { background: #fff0b3; color: #172b4d; }
   .tag-refact { background: #ffebe6; color: #bf2600; }
   .tag-struct { background: #deebff; color: #0747a6; }
+  .tag-docs   { background: #e3fcef; color: #006644; }
 
   /* ── FILE TREE ── */
   .tree { font-family: "SFMono-Regular", Consolas, monospace; font-size: 12.5px; line-height: 2; background: #f4f5f7; border: 1px solid #dfe1e6; border-radius: 6px; padding: 16px 20px; overflow-x: auto; }
@@ -97,7 +112,6 @@
   .tree .x { color: #6554c0; }
   .tree .c { color: #5e6c84; font-style: italic; }
   .tree .arrow { color: #5e6c84; }
-  .tree .del { color: #de350b; text-decoration: line-through; opacity: 0.6; }
   .tree .new { color: #36b37e; font-weight: 700; }
 
   /* ── TABLE ── */
@@ -107,8 +121,6 @@
   tr:nth-child(even) td { background: #fafbfc; }
   .ok  { color: #36b37e; font-weight: 700; }
   .err { color: #de350b; font-weight: 700; }
-  .rm  { color: #de350b; font-weight: 700; }
-  .new-cell { color: #36b37e; font-weight: 700; }
 
   /* ── CALLOUT ── */
   .callout { border-left: 4px solid; border-radius: 4px; padding: 12px 16px; font-size: 13px; line-height: 1.6; margin-top: 12px; }
@@ -117,6 +129,14 @@
   .callout-fix   { background: #f3f0ff; border-color: #6554c0; color: #403294; }
   .callout-ok    { background: #e3fcef; border-color: #36b37e; color: #006644; }
   .callout code  { background: rgba(0,0,0,0.07); border-radius: 3px; padding: 1px 5px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 11.5px; }
+
+  /* ── ENTREGÁVEL CARD ── */
+  .deliverables { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 580px) { .deliverables { grid-template-columns: 1fr; } }
+  .del-card { border: 1px solid #dfe1e6; border-radius: 8px; padding: 14px 16px; background: #fafbfc; }
+  .del-card-title { font-size: 12px; font-weight: 700; color: #172b4d; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .del-card-body { font-size: 12px; color: #5e6c84; line-height: 1.6; }
+  .del-card-body code { background: #f4f5f7; border: 1px solid #dfe1e6; border-radius: 3px; padding: 1px 4px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 11px; color: #172b4d; }
 
   /* ── FOOTER ── */
   footer { text-align: center; font-size: 12px; color: #5e6c84; margin-top: 32px; padding-top: 20px; border-top: 1px solid #dfe1e6; }
@@ -129,24 +149,25 @@
   <div class="header">
     <div class="header-icon">🤖</div>
     <div>
-      <div class="header-eyebrow">Relatório de Sessão · IBM Bob</div>
-      <h1>IBM_Bob_-_Final_Project</h1>
+      <div class="header-eyebrow">Relatório de Projeto · IBM Bob</div>
+      <h1>IBM_Bob_-_Final_Project <span class="badge-final">Entregue ✓</span></h1>
       <div class="header-meta">
         <span>📅 19 de setembro de 2026</span>
         <span>🌿 Branch: main</span>
         <span>👤 RafaelVSantanaDev</span>
-        <span>⏱ 14:16 → sessão completa</span>
+        <span>📦 5 commits · HEAD f19ef1a → 3d0e810</span>
       </div>
     </div>
   </div>
 
   <!-- STAT CARDS -->
   <div class="stats">
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Commits git</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Commits git</div></div>
     <div class="stat"><div class="stat-num">4</div><div class="stat-label">Slash commands</div></div>
     <div class="stat"><div class="stat-num">34</div><div class="stat-label">Trilhas no JSON</div></div>
     <div class="stat"><div class="stat-num">62</div><div class="stat-label">Testes · 100% ✅</div></div>
     <div class="stat"><div class="stat-num">1</div><div class="stat-label">MCP Server</div></div>
+    <div class="stat"><div class="stat-num">956</div><div class="stat-label">Linhas de docs</div></div>
   </div>
 
   <!-- TIMELINE -->
@@ -164,7 +185,7 @@
 
         <div class="event green">
           <div class="event-dot"></div>
-          <div class="event-time">14:16 — Commit #1</div>
+          <div class="event-time">14:16 — Commit #1 · <code>8e41447</code></div>
           <div class="event-title"><span class="tag tag-git">git</span> Inicialização do repositório</div>
           <div class="event-body">
             Primeiro commit: criação do <code>Hello World.md</code> com <em>"Cheguei, Brasil!"</em> —
@@ -174,16 +195,16 @@
 
         <div class="event green">
           <div class="event-dot"></div>
-          <div class="event-time">15:21 — Commit #2</div>
+          <div class="event-time">15:21 — Commit #2 · <code>2452a0e</code></div>
           <div class="event-title"><span class="tag tag-struct">struct</span> Estrutura do módulo <code>dio_explorer/</code></div>
           <div class="event-body">
-            Criação da arquitetura de diretórios: <code>src/</code>, <code>data/</code>, <code>mcp/</code>, <code>docs/</code>, cada um com <code>.gitkeep</code>.
+            Criação da arquitetura de diretórios: <code>src/</code>, <code>data/</code>, <code>mcp/</code>, <code>docs/</code>.
           </div>
         </div>
 
         <div class="event green">
           <div class="event-dot"></div>
-          <div class="event-time">15:23 — Commit #3</div>
+          <div class="event-time">15:23 — Commit #3 · <code>fca2a80</code></div>
           <div class="event-title"><span class="tag tag-data">data</span> Criação do <code>trilhas_dio.json</code></div>
           <div class="event-body">
             34 trilhas completas com: nome, tecnologia, módulos, XP total, badges, promoções, acesso vitalício e lives ao vivo.
@@ -203,7 +224,7 @@
         <!-- FASE 2 -->
         <div class="event gray" style="margin-top:32px">
           <div class="event-dot"></div>
-          <div class="event-time">Sessão 2 — Slash Commands, Skills e Testes</div>
+          <div class="event-time">Sessão 2 — Slash Commands, Skills e Código Python</div>
           <div class="event-title"><span class="phase p2">Fase 2 — Comandos &amp; Código Python</span></div>
         </div>
 
@@ -212,7 +233,7 @@
           <div class="event-time">~Sessão anterior — Tentativa inicial</div>
           <div class="event-title"><span class="tag tag-warn">⚠ problema</span> Skills criadas com <code>disable-model-invocation: true</code></div>
           <div class="event-body">
-            Primeira tentativa resultou em skills com o campo bloqueante — o Bob exibia o template mas não respondia.
+            Primeira tentativa resultou em skills com campo bloqueante — o Bob exibia o template mas não respondia.
             Necessitou diagnóstico e correção manual do frontmatter.
           </div>
         </div>
@@ -245,9 +266,8 @@
           <div class="event-time">~19:38</div>
           <div class="event-title"><span class="tag tag-cmd">commands</span> Expansão: 34 atalhos + menu <code>/trilhas</code></div>
           <div class="event-body">
-            <strong>Opção A:</strong> 34 arquivos individuais (<code>trilha-python.md</code> … <code>trilha-vuejs.md</code>) para autocomplete no menu <code>/</code>.<br>
-            <strong>Opção B:</strong> <code>/trilhas</code> — catálogo completo por categoria com XP e atalhos.<br>
-            Total: <strong>38 slash commands</strong>.
+            <strong>Opção A:</strong> 34 arquivos individuais (<code>trilha-python.md</code> … <code>trilha-vuejs.md</code>) para autocomplete.<br>
+            <strong>Opção B:</strong> <code>/trilhas</code> — catálogo completo por categoria. Total: <strong>38 slash commands</strong>.
           </div>
         </div>
 
@@ -257,17 +277,17 @@
           <div class="event-title"><span class="tag tag-data">python</span> Implementação de <code>dio_commands.py</code></div>
           <div class="event-body">
             Módulo Python com a lógica dos 3 comandos: <code>cmd_trilha</code>, <code>cmd_desafio</code>, <code>cmd_certificado</code>.
-            Inclui funções utilitárias: <code>carregar_trilhas</code>, <code>buscar_trilha</code>, <code>gerar_codigo_verificacao</code>.
+            Funções utilitárias: <code>carregar_trilhas</code>, <code>buscar_trilha</code>, <code>gerar_codigo_verificacao</code>.
           </div>
         </div>
 
         <div class="event green">
           <div class="event-dot"></div>
           <div class="event-time">~20:56</div>
-          <div class="event-title"><span class="tag tag-test">testes</span> Suite de 62 testes unitários — 100% pass</div>
+          <div class="event-title"><span class="tag tag-test">testes</span> Suite de 62 testes unitários — 100% pass · 100% cobertura</div>
           <div class="event-body">
-            Cobertura ≥70% sobre <code>dio_commands.py</code> usando pytest. Classes: <code>TestUtilitarios</code>,
-            <code>TestCmdTrilha</code>, <code>TestCmdDesafio</code>, <code>TestCmdCertificado</code>, <code>TestIntegracaoArquivoReal</code>.
+            Classes: <code>TestUtilitarios</code>, <code>TestCmdTrilha</code>, <code>TestCmdDesafio</code>,
+            <code>TestCmdCertificado</code>, <code>TestIntegracaoArquivoReal</code>.
             Resultados persistidos em <code>resultados_testes.txt</code>.
           </div>
         </div>
@@ -275,58 +295,157 @@
         <!-- FASE 3 -->
         <div class="event gray" style="margin-top:32px">
           <div class="event-dot"></div>
-          <div class="event-time">Sessão 3 — MCP Server, Enxugamento &amp; Remapeamento</div>
-          <div class="event-title"><span class="phase p3">Fase 3 — MCP Server &amp; Refatoração</span></div>
+          <div class="event-time">Sessão 3 — MCP Server, Enxugamento &amp; Checkpoint</div>
+          <div class="event-title"><span class="phase p3">Fase 3 — MCP Server &amp; Consolidação</span></div>
         </div>
 
         <div class="event purple">
           <div class="event-dot"></div>
-          <div class="event-time">Sessão atual</div>
+          <div class="event-time">Sessão 3</div>
           <div class="event-title"><span class="tag tag-mcp">MCP</span> Criação do MCP Server em <code>dio_explorer/mcp/</code></div>
           <div class="event-body">
-            Servidor MCP TypeScript/Node.js expondo as 3 ferramentas via protocolo MCP (transporte stdio).
+            Servidor TypeScript/Node.js expondo 3 ferramentas via protocolo MCP (transporte stdio).
             Stack: <code>@modelcontextprotocol/sdk</code> + <code>zod</code> + TypeScript 5 + Node.js 24.
             <ul>
-              <li>Scaffolding: <code>package.json</code>, <code>tsconfig.json</code>, <code>src/index.ts</code></li>
-              <li>3 ferramentas registradas: <code>trilha</code>, <code>desafio</code>, <code>certificado</code></li>
+              <li>3 ferramentas: <code>trilha</code>, <code>desafio</code>, <code>certificado</code></li>
               <li>Build: <code>npm run build</code> → <code>build/index.js</code></li>
               <li>Registrado em <code>.bob/mcp.json</code> para hot-reload automático no Bob</li>
-              <li>Validação: handshake MCP + <code>tools/list</code> confirmados via stdin/stdout</li>
             </ul>
           </div>
         </div>
 
         <div class="event red">
           <div class="event-dot"></div>
-          <div class="event-time">Sessão atual</div>
-          <div class="event-title"><span class="tag tag-refact">refactor</span> Enxugamento dos slash commands</div>
+          <div class="event-time">Sessão 3</div>
+          <div class="event-title"><span class="tag tag-refact">refactor</span> Enxugamento — 34 arquivos <code>trilha-*.md</code> removidos</div>
           <div class="event-body">
-            Remoção dos <strong>34 arquivos</strong> <code>trilha-*.md</code> redundantes.<br>
-            Os 4 arquivos restantes foram reescritos com comportamento limpo:
-            <ul>
-              <li><code>/trilhas</code> → sempre exibe catálogo completo (sem lógica de argumento)</li>
-              <li><code>/trilha &lt;tecnologia&gt;</code> → plano de estudos com módulos gerados</li>
-              <li>Mensagem de erro agora aponta para <code>/trilhas</code> em vez de listar 34 termos</li>
-              <li>Skills espelhadas atualizadas em sincronia</li>
-            </ul>
+            Os 4 arquivos de commands restantes foram reescritos com comportamento limpo.
+            Skills espelhadas atualizadas em sincronia.
           </div>
         </div>
 
-        <div class="event blue">
+        <div class="event green">
           <div class="event-dot"></div>
-          <div class="event-time">Sessão atual</div>
-          <div class="event-title"><span class="tag tag-struct">struct</span> Remapeamento &amp; documentação do projeto</div>
+          <div class="event-time">21:45 — Commit #4 · <code>f19ef1a</code></div>
+          <div class="event-title"><span class="tag tag-git">git</span> Session checkpoint — entrega completa da sessão</div>
           <div class="event-body">
-            Arquivos criados nesta etapa:
-            <ul>
-              <li><code>README.md</code> — documentação completa na raiz com estrutura, comandos e stack</li>
-              <li><code>.gitignore</code> — regras Python + Node.js + SO + IDEs + segredos</li>
-              <li><code>resumo-do-dia-ibm-bob-final-project.html</code> — este relatório atualizado (versão 2)</li>
-            </ul>
+            4.606 linhas adicionadas em 26 arquivos. README, .gitignore, MCP Server, testes, slash commands,
+            skills, relatório HTML — tudo consolidado em um único commit de checkpoint.
+          </div>
+        </div>
+
+        <!-- FASE 4 -->
+        <div class="event gray" style="margin-top:32px">
+          <div class="event-dot"></div>
+          <div class="event-time">Sessão 4 — Documentação Final</div>
+          <div class="event-title"><span class="phase p4">Fase 4 — Documentação Completa</span></div>
+        </div>
+
+        <div class="event teal">
+          <div class="event-dot"></div>
+          <div class="event-time">Sessão 4</div>
+          <div class="event-title"><span class="tag tag-docs">docs</span> Criação da <code>DOCUMENTATION.md</code> — 956 linhas</div>
+          <div class="event-body">
+            Documentação completa do projeto com: todos os prompts usados, modos de uso (slash commands, skills, MCP),
+            dicas práticas para profissionais, 8 insights para futuros estudantes, glossário IBM Bob e próximos passos.
+          </div>
+        </div>
+
+        <div class="event green">
+          <div class="event-dot"></div>
+          <div class="event-time">Sessão 4 — Commit #5 · <code>3d0e810</code></div>
+          <div class="event-title"><span class="tag tag-git">git</span> Commit de documentação</div>
+          <div class="event-body">
+            <code>docs: adicionar DOCUMENTATION.md — guia completo com prompts, modos de uso, dicas e insights</code>
+          </div>
+        </div>
+
+        <div class="event teal">
+          <div class="event-dot"></div>
+          <div class="event-time">Sessão 4 — Agora</div>
+          <div class="event-title"><span class="tag tag-docs">docs</span> Atualização deste relatório HTML → v3</div>
+          <div class="event-body">
+            Substituição do <code>resumo-do-dia-ibm-bob-final-project.html</code> com o estado final do projeto:
+            5 commits, <code>DOCUMENTATION.md</code> adicionada, callout de pendências removido, todos os artefatos entregues.
           </div>
         </div>
 
       </div><!-- /timeline -->
+    </div>
+  </div>
+
+  <!-- ENTREGÁVEIS FINAIS -->
+  <div class="section">
+    <div class="section-header">📦 Entregáveis do Projeto</div>
+    <div class="section-body">
+      <div class="deliverables">
+
+        <div class="del-card">
+          <div class="del-card-title">⚡ Slash Commands</div>
+          <div class="del-card-body">
+            4 comandos ativos em <code>.bob/commands/</code>:<br>
+            <code>/trilhas</code> · <code>/trilha &lt;tech&gt;</code> · <code>/desafio &lt;tech&gt; &lt;nivel&gt;</code> · <code>/certificado &lt;nome&gt; &lt;tech&gt;</code>
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">🧠 Skills</div>
+          <div class="del-card-body">
+            3 skills em <code>.bob/skills/</code>:<br>
+            <code>trilha</code> · <code>trilhas</code> · <code>certificado</code><br>
+            Todas com <code>user-invocable: true</code>.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">🔌 MCP Server</div>
+          <div class="del-card-body">
+            Servidor TypeScript/Node.js em <code>dio_explorer/mcp/</code>.<br>
+            3 ferramentas: <code>trilha</code>, <code>desafio</code>, <code>certificado</code>.<br>
+            Transporte stdio · registrado em <code>.bob/mcp.json</code>.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">🐍 Módulo Python</div>
+          <div class="del-card-body">
+            <code>dio_explorer/src/dio_commands.py</code><br>
+            3 comandos + 4 utilitários. Lógica espelhada no MCP Server TypeScript.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">🧪 Testes Unitários</div>
+          <div class="del-card-body">
+            <code>tests/test_dio_commands.py</code><br>
+            62 testes · 100% PASSED · 100% de cobertura de código.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">🗄️ Dados</div>
+          <div class="del-card-body">
+            <code>dio_explorer/data/trilhas_dio.json</code><br>
+            34 trilhas · 648.500 XP total · schema com badges, lives, promoções.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">📄 DOCUMENTATION.md</div>
+          <div class="del-card-body">
+            956 linhas · 16 seções.<br>
+            Prompts reais, modos de uso, dicas, insights, glossário e próximos passos.
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="del-card-title">📖 README.md</div>
+          <div class="del-card-body">
+            Visão geral, estrutura do projeto, comandos, MCP Server, como rodar testes e stack completa.
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -338,19 +457,20 @@
 <span class="d">IBM_Bob_-_Final_Project/</span><br>
 ├── <span class="f">Hello World.md</span>  <span class="c">← "Cheguei, Brasil!" — primeiro commit</span><br>
 ├── <span class="f">.bobignore</span>  <span class="c">← exclusões do contexto do Bob</span><br>
-├── <span class="new">.gitignore</span>  <span class="c">← Python + Node.js + SO + IDEs  [novo]</span><br>
-├── <span class="new">README.md</span>  <span class="c">← documentação do projeto  [novo]</span><br>
-├── <span class="n">resumo-do-dia-ibm-bob-final-project.html</span>  <span class="c">← este arquivo (v2)</span><br>
+├── <span class="f">.gitignore</span>  <span class="c">← Python + Node.js + SO + IDEs</span><br>
+├── <span class="f">README.md</span>  <span class="c">← visão geral, stack e comandos</span><br>
+├── <span class="new">DOCUMENTATION.md</span>  <span class="c">← documentação completa com prompts e insights  [novo]</span><br>
+├── <span class="f">resumo-do-dia-ibm-bob-final-project.html</span>  <span class="c">← este arquivo (v3)</span><br>
 ├── <span class="f">resultados_testes.txt</span>  <span class="c">← 62 testes · 100% PASSED</span><br>
 │<br>
 ├── <span class="d">.bob/</span><br>
-│   ├── <span class="new">mcp.json</span>  <span class="c">← registro do MCP Server  [novo]</span><br>
-│   ├── <span class="d">commands/</span>  <span class="c">← 4 slash commands  (eram 38)</span><br>
+│   ├── <span class="f">mcp.json</span>  <span class="c">← registro do MCP Server</span><br>
+│   ├── <span class="d">commands/</span>  <span class="c">← 4 slash commands</span><br>
 │   │   ├── <span class="x">trilha.md</span>  <span class="arrow">→</span>  <code>/trilha &lt;tecnologia&gt;</code><br>
 │   │   ├── <span class="x">trilhas.md</span>  <span class="arrow">→</span>  <code>/trilhas</code><br>
 │   │   ├── <span class="x">desafio.md</span>  <span class="arrow">→</span>  <code>/desafio &lt;tech&gt; &lt;nivel&gt;</code><br>
 │   │   └── <span class="x">certificado.md</span>  <span class="arrow">→</span>  <code>/certificado &lt;nome&gt; &lt;tech&gt;</code><br>
-│   └── <span class="d">skills/</span><br>
+│   └── <span class="d">skills/</span>  <span class="c">← 3 skills com user-invocable: true</span><br>
 │       ├── trilha/SKILL.md<br>
 │       ├── trilhas/SKILL.md<br>
 │       └── certificado/SKILL.md<br>
@@ -360,61 +480,15 @@
 │   │   └── <span class="f">trilhas_dio.json</span>  <span class="c">← 34 trilhas · 648.500 XP total</span><br>
 │   ├── <span class="d">src/</span><br>
 │   │   └── <span class="f">dio_commands.py</span>  <span class="c">← lógica Python dos 3 comandos</span><br>
-│   ├── <span class="d new">mcp/</span>  <span class="c">← MCP Server TypeScript/Node.js  [novo]</span><br>
-│   │   ├── <span class="new">src/index.ts</span>  <span class="c">← código-fonte do servidor</span><br>
-│   │   ├── <span class="new">build/index.js</span>  <span class="c">← artefato compilado</span><br>
-│   │   ├── <span class="new">package.json</span><br>
-│   │   ├── <span class="new">tsconfig.json</span><br>
-│   │   └── <span class="new">README.md</span><br>
-│   └── <span class="d">docs/</span>  <span class="c">← documentação (em construção)</span><br>
+│   ├── <span class="d">mcp/</span>  <span class="c">← MCP Server TypeScript/Node.js</span><br>
+│   │   ├── src/index.ts  <span class="c">← código-fonte do servidor</span><br>
+│   │   ├── build/index.js  <span class="c">← artefato compilado</span><br>
+│   │   ├── package.json · tsconfig.json · README.md<br>
+│   └── <span class="d">docs/</span>  <span class="c">← documentação da arquitetura (próxima etapa)</span><br>
 │<br>
 └── <span class="d">tests/</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="f">__init__.py</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="f">test_dio_commands.py</span>  <span class="c">← 62 testes unitários</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLASH COMMANDS TABLE -->
-  <div class="section">
-    <div class="section-header">⚡ Slash Commands Ativos</div>
-    <div class="section-body">
-      <table>
-        <thead>
-          <tr><th>Comando</th><th>Argumentos</th><th>Descrição</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>/trilhas</code></td><td>—</td><td>Lista todas as 34 trilhas por categoria com XP</td><td class="ok">✅</td></tr>
-          <tr><td><code>/trilha</code></td><td><code>&lt;tecnologia&gt;</code></td><td>Plano completo: módulos gerados, badges, lives, promoção, acesso vitalício</td><td class="ok">✅</td></tr>
-          <tr><td><code>/desafio</code></td><td><code>&lt;tech&gt; &lt;nivel&gt;</code></td><td>Desafio aleatório com enunciado, exemplos, dicas e XP</td><td class="ok">✅</td></tr>
-          <tr><td><code>/certificado</code></td><td><code>&lt;nome&gt; &lt;tech&gt;</code></td><td>Certificado fictício ASCII art com código de verificação DIO-</td><td class="ok">✅</td></tr>
-        </tbody>
-      </table>
-      <div class="callout callout-ok" style="margin-top:12px">
-        ✅ <strong>34 arquivos <code>trilha-*.md</code> foram removidos</strong> — os comandos que antes requeriam
-        um arquivo por tecnologia foram consolidados no comando genérico <code>/trilha &lt;tecnologia&gt;</code>.
-      </div>
-    </div>
-  </div>
-
-  <!-- MCP SERVER TABLE -->
-  <div class="section">
-    <div class="section-header">🔌 MCP Server — dio-explorer</div>
-    <div class="section-body">
-      <table>
-        <thead>
-          <tr><th>Ferramenta MCP</th><th>Parâmetros</th><th>Descrição</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>trilha</code></td><td><code>tecnologia: string</code></td><td>Plano de estudos por tecnologia — lê <code>trilhas_dio.json</code></td><td class="ok">✅</td></tr>
-          <tr><td><code>desafio</code></td><td><code>tecnologia, nivel: string</code></td><td>Desafio aleatório com XP para a tecnologia e nível informados</td><td class="ok">✅</td></tr>
-          <tr><td><code>certificado</code></td><td><code>nome_usuario, tecnologia: string</code></td><td>Certificado fictício com código de verificação e data de emissão</td><td class="ok">✅</td></tr>
-        </tbody>
-      </table>
-      <div class="callout callout-info" style="margin-top:12px">
-        💡 Registrado em <code>.bob/mcp.json</code> com transporte <strong>stdio</strong>.
-        O Bob inicia o servidor automaticamente ao abrir o workspace.
-        Comando: <code>node /…/dio_explorer/mcp/build/index.js</code>
       </div>
     </div>
   </div>
@@ -428,16 +502,34 @@
           <tr><th>#</th><th>Hash</th><th>Horário</th><th>Mensagem</th></tr>
         </thead>
         <tbody>
+          <tr><td>5</td><td><code>3d0e810</code></td><td>Sessão 4</td><td>docs: adicionar DOCUMENTATION.md — guia completo com prompts, modos de uso, dicas e insights</td></tr>
+          <tr><td>4</td><td><code>f19ef1a</code></td><td>21:45</td><td>feat: session checkpoint — MCP Server, slash commands, tests, docs</td></tr>
           <tr><td>3</td><td><code>fca2a80</code></td><td>15:23</td><td>Add trilhas_dio.json to dio_explorer/data</td></tr>
           <tr><td>2</td><td><code>2452a0e</code></td><td>15:21</td><td>Add dio_explorer project structure (src, data, mcp, docs)</td></tr>
           <tr><td>1</td><td><code>8e41447</code></td><td>14:16</td><td>Add Hello World.md</td></tr>
         </tbody>
       </table>
-      <div class="callout callout-warn" style="margin-top:12px">
-        ⚠️ <strong>Arquivos ainda não comitados:</strong> toda a pasta <code>.bob/</code>, <code>.bobignore</code>,
-        <code>.gitignore</code>, <code>README.md</code>, <code>dio_explorer/src/</code>, <code>dio_explorer/mcp/</code>,
-        <code>tests/</code>, <code>resultados_testes.txt</code> e este relatório. Sugestão: um único commit de consolidação.
+      <div class="callout callout-ok" style="margin-top:12px">
+        ✅ <strong>Todos os artefatos estão comitados.</strong> Working tree limpa · HEAD <code>3d0e810</code> · Branch <code>main</code>.
       </div>
+    </div>
+  </div>
+
+  <!-- SLASH COMMANDS TABLE -->
+  <div class="section">
+    <div class="section-header">⚡ Slash Commands &amp; MCP Tools</div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th>Slash Command</th><th>MCP Tool equivalente</th><th>Descrição</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/trilhas</code></td><td>—</td><td>Lista todas as 34 trilhas por categoria com XP</td><td class="ok">✅</td></tr>
+          <tr><td><code>/trilha &lt;tech&gt;</code></td><td><code>mcp__dio-explorer__trilha</code></td><td>Plano completo: módulos, badges, lives, promoção, acesso vitalício</td><td class="ok">✅</td></tr>
+          <tr><td><code>/desafio &lt;tech&gt; &lt;nivel&gt;</code></td><td><code>mcp__dio-explorer__desafio</code></td><td>Desafio aleatório com enunciado, exemplos, dicas e XP</td><td class="ok">✅</td></tr>
+          <tr><td><code>/certificado &lt;nome&gt; &lt;tech&gt;</code></td><td><code>mcp__dio-explorer__certificado</code></td><td>Certificado fictício ASCII art com código de verificação</td><td class="ok">✅</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -446,23 +538,26 @@
     <div class="section-header">🔭 Próximos Passos Sugeridos</div>
     <div class="section-body">
       <div class="callout callout-info">
-        💡 <strong>git commit</strong> — consolidar todos os arquivos pendentes em um commit de fechamento da sessão.
-      </div>
-      <div class="callout callout-info" style="margin-top:10px">
-        💡 <strong>dio_explorer/docs/</strong> — documentar a arquitetura, decisões técnicas e o protocolo MCP utilizado.
-      </div>
-      <div class="callout callout-info" style="margin-top:10px">
-        💡 <strong>HTTP/SSO</strong> — para expor o MCP Server remotamente, substituir o transporte stdio por
-        <code>StreamableHTTPServerTransport</code> e adicionar autenticação via Bearer token ou OAuth 2.0.
+        💡 <strong>dio_explorer/docs/</strong> — documentar a arquitetura em formato ADR (Architecture Decision Records).
       </div>
       <div class="callout callout-info" style="margin-top:10px">
         💡 <strong>CI/CD</strong> — GitHub Actions com <code>pytest</code> + <code>npm run build</code> em cada push para <code>main</code>.
+      </div>
+      <div class="callout callout-info" style="margin-top:10px">
+        💡 <strong>HTTP Transport</strong> — substituir o transporte stdio por <code>StreamableHTTPServerTransport</code>
+        para expor o MCP Server remotamente com autenticação Bearer / OAuth 2.0.
+      </div>
+      <div class="callout callout-info" style="margin-top:10px">
+        💡 <strong>Testes do MCP Server</strong> — cobertura unitária em <code>index.ts</code> usando Jest + TypeScript.
+      </div>
+      <div class="callout callout-info" style="margin-top:10px">
+        💡 <strong>git push</strong> — publicar os 2 commits locais (<code>f19ef1a</code> e <code>3d0e810</code>) em <code>origin/main</code>.
       </div>
     </div>
   </div>
 
   <footer>
-    Gerado por IBM Bob · RafaelVSantanaDev/IBM_Bob_-_final_project · 19 set 2026 · v2
+    Gerado por IBM Bob · RafaelVSantanaDev/IBM_Bob_-_final_project · 19 set 2026 · v3
     <br><span style="opacity:0.6">Made with IBM Bob</span>
   </footer>
 
